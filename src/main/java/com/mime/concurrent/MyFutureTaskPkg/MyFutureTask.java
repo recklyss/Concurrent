@@ -20,7 +20,7 @@ public class MyFutureTask<V> implements Runnable, Future {
         synchronized (this){
             try {
                 result = callable.call();
-                this.notify();
+                this.notifyAll();
             } catch (Exception e) {
                 e.printStackTrace();
             }
@@ -39,6 +39,10 @@ public class MyFutureTask<V> implements Runnable, Future {
         return false;
     }
 
+    /**
+     * get方法是阻塞的 原FutureTask中是使用LockSupport中的park/unPark方法实现的阻塞
+     * 这里实现阻塞使用wait和notifyAll
+     */
     public synchronized V get() throws InterruptedException, ExecutionException {
         if(null != result){
             return result;
