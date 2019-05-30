@@ -7,7 +7,7 @@ public class Sequence {
 
     private int value;
 
-    private MyLock lock = new MyLock();
+    private MyReentrantLock lock = new MyReentrantLock();
 
     Sequence(){
         this.value = 0;

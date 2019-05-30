@@ -7,7 +7,7 @@ import java.util.concurrent.locks.Lock;
 /**
  * 自定义锁 实现锁的获取与释放 以及可重入
  */
-public class MyLock implements Lock {
+public class MyReentrantLock implements Lock {
 
     private boolean locked = false;// 当前锁是否已经被线程使用
 
