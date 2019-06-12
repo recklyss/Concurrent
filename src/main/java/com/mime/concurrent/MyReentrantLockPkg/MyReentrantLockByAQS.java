@@ -52,8 +52,8 @@ public class MyReentrantLockByAQS implements Lock {
             return flag;
         }
 
-        public Condition newCondition() {
-            return newCondition();
+        public ConditionObject newCondition() {
+            return new ConditionObject();
         }
     }
 
